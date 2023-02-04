@@ -117,6 +117,7 @@ si este mult mai usor acum sa o gestionam.
 
 
 
-Nume Prenume: BUtcan Vlad
+Nume Prenume: Butcan Vlad
+An I 315CD
 Email: butcanvlad10@gmail.com
 Telefon: +40763834822
