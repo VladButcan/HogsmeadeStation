@@ -1,5 +1,5 @@
 build:
-	gcc -g *.c -o tema1
+	gcc *.c -o tema1
 
 test: build
 	valgrind --leak-check=full ./tema1
