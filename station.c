@@ -16,9 +16,7 @@ TrainStation* open_train_station(int platforms_no) {
         TrainStation * gara = malloc(sizeof(TrainStation));
         gara->platforms_no = platforms_no;
         gara->platforms = malloc(sizeof(Train *) * platforms_no);
-
         for (int i = 0; i < platforms_no; i++) {
-            //gara->platforms[i] = malloc(sizeof(Train));
             gara->platforms[i] = NULL;
         }
         return gara;
@@ -43,7 +41,6 @@ void close_train_station(TrainStation *station) {
                         while (node != NULL) {
                             pnode = node;
                             node = node->next;
-                            //pnode->next = NULL;
                             free(pnode);
                         }
                     }
@@ -66,7 +63,6 @@ void show_existing_trains(TrainStation *station, FILE *f) {
     if (station && f) {
         if (station->platforms_no > 0) {
             for (int i = 0; i < station->platforms_no; i++) {
-                //printf("i = %d\n", i);
                 fprintf(f, "%d: ", i);
                 if (station->platforms) {
                     if (station->platforms[i]) {
@@ -259,10 +255,8 @@ void move_train_cars(TrainStation *station, int platform_a, int pos_a,
                         int ok = 0;
                         TrainCar * vagon = station->platforms[platform_a]->train_cars;
                         TrainCar * past_vagon;
-                        TrainCar * next_vagon;
                         TrainCar * start_move;
                         TrainCar * stop_move;
-
                         while (vagon) {
                             vagon = vagon->next;
                             length_a++;
@@ -486,13 +480,6 @@ void order_train(TrainStation *station, int platform) {
             TrainCar * vagon = station->platforms[platform]->train_cars;
             TrainCar * swap_vagon;
             TrainCar * prev_vagon;
-            int length = 0;
-            int aux = 0;
-            while (vagon) {
-                length++;
-                vagon = vagon->next;
-            }
-            vagon = station->platforms[platform]->train_cars;
             if (vagon->next) {
                 int ok = 1;
                 vagon = station->platforms[platform]->train_cars;
